@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// นี่คือพิมพ์เขียวตารางที่ดินของเรา
+model Land {
+  id          Int      @id @default(autoincrement()) // สร้าง ID ให้เองอัตโนมัติ
+  title       String
+  size        Float                                  // ใช้สำหรับตัวเลขที่มีทศนิยม
+  unit        String   @default("ตร.ว.")              // ตั้งค่าเริ่มต้นของหน่วยเป็น ตร.ว.
+  coordinateX Float
+  coordinateY Float
+  ownerName   String
+  createdAt   DateTime @default(now())               // บันทึกเวลาที่เพิ่มข้อมูลลงระบบอัตโนมัติ
+}
