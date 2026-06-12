@@ -25,6 +25,7 @@ export class LandsController {
   // ในไฟล์ lands.controller.ts
   @Post()
   async create(@Body() createLandDto: CreateLandDto) {
+    console.log('Received data -->>:', createLandDto);
     return await this.landsService.create(createLandDto);
   }
 

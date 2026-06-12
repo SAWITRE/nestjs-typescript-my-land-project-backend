@@ -5,6 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
   controllers: [LandsController],
-  providers: [LandsService, PrismaService]
+  providers: [LandsService, PrismaService],
+  exports: [LandsService],
 })
 export class LandsModule {}
